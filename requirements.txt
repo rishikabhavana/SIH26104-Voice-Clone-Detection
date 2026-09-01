@@ -1,0 +1,16 @@
+Flask
+Flask-SocketIO
+eventlet
+python-dotenv
+numpy
+pandas
+scikit-learn
+librosa
+soundfile
+torch
+torchaudio
+transformers
+huggingface_hub
+joblib
+requests
+websocket-client

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceGuard AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">🎙️</div>
+                <div>
+                    <h1>VoiceGuard AI</h1>
+                    <p>AI Voice & Voice Clone Detection</p>
+                </div>
+            </div>
+            <div class="status">
+                <span class="status-dot"></span> SYSTEM ONLINE
+            </div>
+        </header>
+
+        <!-- MAIN -->
+        <main>
+            <section class="hero">
+                <h2>Detect AI-Generated Voices</h2>
+                <p>
+                    Upload a voice recording or stream live audio through your microphone to detect signs of synthetic or cloned speech in real time.
+                </p>
+            </section>
+
+            <!-- UPLOAD CARD -->
+            <section class="upload-card">
+                <div id="dropZone" class="drop-zone">
+                    <div class="upload-icon">🎧</div>
+                    <h3>Upload Voice Recording</h3>
+                    <p>Drag & drop your audio here</p>
+                    <p class="small">or</p>
+                    <label for="audioFile" class="browse-button">Choose Audio</label>
+                    <input type="file" id="audioFile" accept=".wav,.mp3,.m4a,.ogg,.flac,.webm" hidden>
+                    <p id="fileName" class="file-name"></p>
+                </div>
+
+                <button id="analyzeButton" class="analyze-button" disabled>
+                    🔍 Analyze Uploaded File
+                </button>
+            </section>
+
+            <!-- LIVE MICROPHONE CARD -->
+            <section class="upload-card">
+                <div class="drop-zone">
+                    <div class="upload-icon">🎙️</div>
+                    <h3>Live Microphone Stream</h3>
+                    <p>Stream real-time audio directly from your mic to detect synthetic patterns.</p>
+                </div>
+
+                <div style="display: flex; gap: 10px; width: 100%; margin-top: 15px;">
+                    <button id="startMicBtn" class="analyze-button">
+                        ▶️ Start Live Analysis
+                    </button>
+                    <button id="stopMicBtn" class="reset-button" disabled>
+                        ⏹️ Stop Stream
+                    </button>
+                </div>
+            </section>
+
+            <!-- LOADING -->
+            <section id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <h3>Analyzing Voice...</h3>
+                <p>Extracting acoustic features and checking for AI-generated patterns.</p>
+            </section>
+
+            <!-- RESULT -->
+            <section id="result" class="result hidden">
+                <div id="resultIcon" class="result-icon"></div>
+                <h2 id="resultTitle"></h2>
+
+                <div class="confidence-container">
+                    <p>Detection Confidence</p>
+                    <div class="progress">
+                        <div id="confidenceBar" class="progress-bar"></div>
+                    </div>
+                    <strong id="confidence"></strong>
+                </div>
+
+                <div class="details">
+                    <div>
+                        <span>Duration</span>
+                        <strong id="duration"></strong>
+                    </div>
+                    <div>
+                        <span>Sample Rate</span>
+                        <strong id="sampleRate"></strong>
+                    </div>
+                </div>
+
+                <div id="resultMessage" class="result-message"></div>
+
+                <button id="resetButton" class="reset-button">
+                    Analyze Another Voice
+                </button>
+            </section>
+
+            <!-- INFORMATION -->
+            <section class="info">
+                <h2>How VoiceGuard AI Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Audio Input</h3>
+                        <p>Voice recording or live audio stream is securely received by the system.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Feature Analysis</h3>
+                        <p>Acoustic characteristics such as MFCC, pitch, and spectral features are extracted.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>AI Detection</h3>
+                        <p>The trained machine-learning model evaluates the extracted features.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Result</h3>
+                        <p>The system indicates whether the voice is likely human or AI-generated.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>VoiceGuard AI • Voice Clone Detection System</p>
+            <p>For research and demonstration purposes</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

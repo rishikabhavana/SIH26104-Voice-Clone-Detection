@@ -1,0 +1,51 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded audio files
+uploads/
+temp/
+tmp/
+
+# Generated audio
+*.mp3
+*.wav
+*.m4a
+*.ogg
+
+# Model/cache files
+*.pkl
+*.joblib
+
+# Keep the project dataset if you want to upload it
+# Remove this line if you DON'T want datasets on GitHub
+# features.csv
